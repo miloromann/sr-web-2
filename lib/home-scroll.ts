@@ -25,6 +25,11 @@ export function captureHomeScrollFromWindow() {
   if (y > 0) lastHomeScrollY = y;
 }
 
+/** Forget saved index position (e.g. footer brand → top of home). */
+export function clearHomeScroll() {
+  lastHomeScrollY = 0;
+}
+
 /** Block 0-overwrites while we re-apply a restored position. */
 export function beginHomeScrollRestore(durationMs = 600) {
   restoreLockUntil = Date.now() + durationMs;

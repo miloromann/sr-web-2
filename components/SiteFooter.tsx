@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import { usePathname } from "next/navigation";
+import type { CSSProperties, MouseEvent } from "react";
 import { content, CONTACT_EMAIL } from "@/lib/content";
+import { clearHomeScroll } from "@/lib/home-scroll";
 
 export function SiteFooter({
   className,
@@ -10,7 +14,19 @@ export function SiteFooter({
   className?: string;
   style?: CSSProperties;
 }) {
+  const pathname = usePathname();
   const footer = content.footer;
+  const onHome =
+    pathname === "/" || pathname === "" || pathname === "/index.html";
+
+  const goHomeTop = (e: MouseEvent<HTMLAnchorElement>) => {
+    clearHomeScroll();
+    if (onHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer
       className={["site-footer", className].filter(Boolean).join(" ")}
@@ -18,7 +34,8 @@ export function SiteFooter({
     >
       <Link
         href="/"
-        scroll={false}
+        scroll
+        onClick={goHomeTop}
         className="site-footer__mark-link site-footer__mark-link--left"
         aria-label={content.labels.aria.backHome}
       >
@@ -37,7 +54,8 @@ export function SiteFooter({
       </div>
       <Link
         href="/"
-        scroll={false}
+        scroll
+        onClick={goHomeTop}
         className="site-footer__mark-link site-footer__mark-link--right"
         aria-label={content.labels.aria.backHome}
       >
