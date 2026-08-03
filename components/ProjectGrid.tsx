@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { getOpeningTileDelayMs } from "@/components/OpeningAnimation";
 import { MutedAutoplayVideo } from "@/components/MutedAutoplayVideo";
-import { captureHomeScrollFromWindow } from "@/lib/home-scroll";
+import { captureHomeScrollFromWindow, markHomeScrollPendingRestore } from "@/lib/home-scroll";
 import type { GridItem, Project } from "@/lib/projects";
 
 function TileImage({
@@ -194,7 +194,10 @@ export function ProjectGrid({
             key={project.slug}
             href={`/work/${project.slug}`}
             aria-label={project.title}
-            onClick={captureHomeScrollFromWindow}
+            onClick={() => {
+              captureHomeScrollFromWindow();
+              markHomeScrollPendingRestore();
+            }}
           >
             <TileShell
               reentering={reentering}

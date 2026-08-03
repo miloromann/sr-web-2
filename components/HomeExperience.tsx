@@ -18,7 +18,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import {
   beginHomeScrollRestore,
   captureHomeScrollFromWindow,
-  getHomeScroll,
+  clearHomeScroll,
+  consumeHomeScrollPendingRestore,
   setHomeScroll,
 } from "@/lib/home-scroll";
 import { hasOpeningBeenHandled } from "@/lib/opening-gate";
@@ -76,9 +77,11 @@ export function HomeExperience() {
   }, [items]);
 
   useLayoutEffect(() => {
+    // Only restore after project → home, never when the intro finishes
+    // (restore timers were fighting mid-scroll and felt like a lock).
     if (!items || openingActive) return;
 
-    const y = getHomeScroll();
+    const y = consumeHomeScrollPendingRestore();
     if (y <= 0) return;
 
     beginHomeScrollRestore(700);
@@ -189,10 +192,23 @@ export function HomeExperience() {
       <AboutOverlay
         open={aboutOpen}
         origin={aboutOrigin}
-        onClose={() => setAboutOpen(false)}
+        onClose={() => {
+          // Always land at the top of the index after About closes
+          clearHomeScroll();
+          document.body.style.overflow = "";
+          window.scrollTo(0, 0);
+          requestAnimationFrame(() => {
+            const brand = document.querySelector(".tile--brand");
+            if (brand instanceof HTMLElement) {
+              setAboutOrigin(measureAboutOrigin(brand));
+            }
+            setAboutOpen(false);
+          });
+        }}
         onExitComplete={() => {
           setAboutCovering(false);
           setAboutReentering(true);
+          window.scrollTo(0, 0);
         }}
       />
     </>

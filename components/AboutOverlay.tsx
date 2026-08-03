@@ -99,6 +99,9 @@ export function AboutOverlay({
 
     if (!mounted) return;
 
+    // Shrink toward latest origin (e.g. R after scrolling home to top)
+    if (origin) setFrom(origin);
+
     if (reduceMotion.current || !from) {
       setPhase("idle");
       setMounted(false);
@@ -121,6 +124,12 @@ export function AboutOverlay({
   useEffect(() => {
     if (!mounted) return;
 
+    // Unlock scroll while exiting so the page can jump to top under the overlay
+    if (phase === "exit") {
+      document.body.style.overflow = "";
+      return;
+    }
+
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -133,7 +142,7 @@ export function AboutOverlay({
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
-  }, [mounted, onClose]);
+  }, [mounted, onClose, phase]);
 
   if (!mounted) return null;
 
@@ -141,8 +150,8 @@ export function AboutOverlay({
   const shrinking = phase === "enter" || phase === "exit";
   const revealed = phase === "open";
 
-  // Expand/shrink uses hover-sized R. Open panel keeps that top-left, fills to page insets.
-  const style: CSSProperties = !originBox
+  // Morph from the R tile, then always fill the viewport insets (X stays top-left).
+  const style: CSSProperties = !originBox || !shrinking
     ? {
         top: "var(--about-inset-y)",
         left: "var(--about-inset-x)",
@@ -150,21 +159,13 @@ export function AboutOverlay({
         height: "calc(100% - (var(--about-inset-y) * 2))",
         borderRadius: "var(--about-radius)",
       }
-    : shrinking
-      ? {
-          top: originBox.top,
-          left: originBox.left,
-          width: originBox.width,
-          height: originBox.height,
-          borderRadius: originBox.radius,
-        }
-      : {
-          top: originBox.top,
-          left: originBox.left,
-          width: `calc(100% - ${originBox.left}px - var(--about-inset-x))`,
-          height: `calc(100% - ${originBox.top}px - var(--about-inset-y))`,
-          borderRadius: "var(--about-radius)",
-        };
+    : {
+        top: originBox.top,
+        left: originBox.left,
+        width: originBox.width,
+        height: originBox.height,
+        borderRadius: originBox.radius,
+      };
 
   return (
     <div

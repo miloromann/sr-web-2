@@ -14,7 +14,9 @@
   background: transparent;
   padding: 28px var(--page-pad) 40px;
   overflow: visible;
+  /* Never block page scroll or tile clicks during the intro */
   pointer-events: none;
+  touch-action: none;
   transition: opacity 0.2s linear;
 }
 
@@ -136,6 +138,15 @@
   opacity: 1;
   transition: none;
   pointer-events: auto;
+  /* Keep scrolling fluid while intro tiles cascade */
+  touch-action: pan-y;
+  overscroll-behavior-y: auto;
+}
+
+.home-main.is-opening,
+.home-main.is-opening-playing {
+  /* Don't let transform animations on tiles trap touch-scroll on mobile */
+  touch-action: pan-y;
 }
 
 /* Hide empty #161616 plates and media until letters / cascade start */
