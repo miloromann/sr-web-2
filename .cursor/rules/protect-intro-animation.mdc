@@ -1,0 +1,31 @@
+---
+description: Protect the homepage intro animation — never modify unless the user explicitly asks to change the intro/opening animation.
+alwaysApply: true
+---
+
+# Protect intro animation
+
+The Studio Romann homepage intro is a **locked baseline**. Do not change it when working on project pages, BRDs, layouts, footer, hover, video mute UI, or other site edits.
+
+## Do not edit (unless user explicitly asks about the intro / opening / morph)
+
+- `components/OpeningAnimation.tsx`
+- `components/HomeExperience.tsx` (opening mount, morphTiles wiring, handoff / videosEnabled for intro)
+- `app/opening.css`
+- Shuffle helpers used by the intro in `lib/projects.ts`: `buildShuffledHomepageGrid`, `getItemMorphMedia`, `MorphMedia`
+- Opening letter assets under `public/brand/romann-logo-*.png`
+
+## Behavior that must stay
+
+1. Letter **ROMANN** morphs into the **shuffled** homepage tile order (R fixed first).
+2. Video project tiles play muted during the morph.
+3. Next row continues the cascade after OMANN.
+4. Seamless handoff into the live grid (same metrics; no layout jump).
+5. Intro plays on **full load / refresh of `/` only** — not when navigating back from a project page. Replay mid-session with `?forceOpening=1`. Skip with `?skipOpening=1` or `prefers-reduced-motion`.
+6. Homepage grid shuffle is **cached for the document load** — same order when returning from a project; new shuffle only on full refresh.
+
+## When editing other features
+
+- Prefer editing case-study components, project data fields, and non-opening sections of `app/globals.css`.
+- Never remove, replace, or “simplify” the intro to fix unrelated bugs.
+- Never switch back to `opening.mp4` unless the user asks for that file specifically.
