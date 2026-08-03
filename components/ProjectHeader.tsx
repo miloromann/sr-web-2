@@ -1,16 +1,16 @@
-"use client";
-
 import Link from "next/link";
+import { content } from "@/lib/content";
 import type { Project } from "@/lib/projects";
 
 export function ProjectHeader({ project }: { project: Project }) {
+  const [aboutLabel, kindLabel, yearLabel] = content.labels.projectMeta;
   return (
     <header className="project-header">
       <Link
         href="/"
         scroll={false}
         className="project-header__logo-tile"
-        aria-label="Back to Studio Romann home"
+        aria-label={content.labels.aria.backHome}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -27,11 +27,11 @@ export function ProjectHeader({ project }: { project: Project }) {
 
       <div className="project-header__meta">
         <div>
-          <p className="project-header__label">About</p>
+          <p className="project-header__label">{aboutLabel}</p>
           <p className="project-header__value">{project.about}</p>
         </div>
         <div className="project-header__kind">
-          <p className="project-header__label">Kind</p>
+          <p className="project-header__label">{kindLabel}</p>
           {project.kind.map((k) => (
             <p className="project-header__value" key={k}>
               {k}
@@ -39,7 +39,7 @@ export function ProjectHeader({ project }: { project: Project }) {
           ))}
         </div>
         <div className="project-header__year">
-          <p className="project-header__label">Year</p>
+          <p className="project-header__label">{yearLabel}</p>
           <p className="project-header__value">{project.year}</p>
         </div>
       </div>

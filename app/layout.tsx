@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { content } from "@/lib/content";
 import "./globals.css";
 import "./opening.css";
 
@@ -10,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Studio Romann",
-  description: "Studio Romann — New York City creative studio.",
+  title: content.site.title,
+  description: content.site.description,
 };
 
 export default function RootLayout({

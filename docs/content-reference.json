@@ -1,0 +1,888 @@
+{
+  "meta": {
+    "product": "Studio Romann portfolio website",
+    "version": "version-001",
+    "extractedAt": "2026-08-03",
+    "note": "SOURCE OF TRUTH — edit this file to change site text. Refresh the browser after saving.",
+    "sources": [
+      "lib/projects.ts",
+      "components/AboutOverlay.tsx",
+      "components/SiteFooter.tsx",
+      "app/layout.tsx",
+      "docs/BRD.md",
+      "VERSION"
+    ]
+  },
+  "site": {
+    "title": "Studio Romann",
+    "description": "Studio Romann — New York City creative studio.",
+    "location": "New York City",
+    "contactEmail": "miloromaguera@gmail.com",
+    "brdContactEmail": "hello@studioromann.com",
+    "github": "https://github.com/miloromann/sr-web-2"
+  },
+  "footer": {
+    "leftMarkAlt": "STUDIO",
+    "rightMarkAlt": "ROMANN",
+    "location": "New York City",
+    "contactLabel": "Contact",
+    "contactEmail": "miloromaguera@gmail.com",
+    "assets": {
+      "studio": "/footer/studio-footer.png",
+      "romann": "/footer/romann-footer.png"
+    }
+  },
+  "about": {
+    "heading": "ABOUT",
+    "boldWords": [
+      "Studio Romann",
+      "design",
+      "with",
+      "intention"
+    ],
+    "copy": "Studio Romann is a multidisciplinary creative studio specializing in brand strategy, design, and activation. Founded by Milo Romaguera, the studio collaborates with cultural and commercial partners across the globe to craft bold, enduring identities. Our design process is rooted in attentive observation, drawing inspiration from the environments we inhabit and the experiences that shape us. This sensitivity allows us to translate vision into form with nuance and intention. Through thoughtful strategy and expressive design, we create work that resonates, allowing brands to communicate authentically with their intended audiences while opening pathways to new possibilities.",
+    "assets": {
+      "close": "/about/close.svg",
+      "mark": "/about/r-mark.svg"
+    }
+  },
+  "labels": {
+    "projectMeta": [
+      "About",
+      "Kind",
+      "Year"
+    ],
+    "aria": {
+      "aboutBrand": "About Studio Romann",
+      "backHome": "Back to Studio Romann home",
+      "closeAbout": "Close about",
+      "unmute": "Unmute video",
+      "mute": "Mute video"
+    }
+  },
+  "homepage": {
+    "brand": {
+      "tile": "/brand/romann-logo-r.png",
+      "alt": "Studio Romann"
+    },
+    "cta": {
+      "tile": "/tiles/create-cta.png",
+      "alt": "Create with Studio Romann"
+    },
+    "canonicalOrder": [
+      {
+        "kind": "brand",
+        "alt": "Studio Romann",
+        "tile": "/brand/romann-logo-r.png"
+      },
+      {
+        "kind": "project",
+        "slug": "here-stills",
+        "title": "HERE. STILLS"
+      },
+      {
+        "kind": "project",
+        "slug": "here",
+        "title": "HERE."
+      },
+      {
+        "kind": "project",
+        "slug": "nyotaimori",
+        "title": "NYOTAIMORI"
+      },
+      {
+        "kind": "project",
+        "slug": "live-at-arthur-ashe",
+        "title": "LIVE AT ARTHUR ASHE"
+      },
+      {
+        "kind": "project",
+        "slug": "harbor",
+        "title": "HARBOR"
+      },
+      {
+        "kind": "project",
+        "slug": "the-dance-vol-4",
+        "title": "THE DANCE VOL. 4"
+      },
+      {
+        "kind": "project",
+        "slug": "vincent-randazzo",
+        "title": "VINCENT RANDAZZO"
+      },
+      {
+        "kind": "project",
+        "slug": "the-salon",
+        "title": "THE SALON"
+      },
+      {
+        "kind": "project",
+        "slug": "lillys-show",
+        "title": "LILLY’S SHOW"
+      },
+      {
+        "kind": "project",
+        "slug": "earth-swallow-me-whole",
+        "title": "EARTH SWALLOW ME WHOLE"
+      },
+      {
+        "kind": "project",
+        "slug": "the-fitting",
+        "title": "THE FITTING"
+      },
+      {
+        "kind": "project",
+        "slug": "rebel",
+        "title": "REBEL"
+      },
+      {
+        "kind": "project",
+        "slug": "poeppel",
+        "title": "POEPPEL"
+      },
+      {
+        "kind": "project",
+        "slug": "how-to-wring-a-dream",
+        "title": "HOW TO WRING A DREAM"
+      },
+      {
+        "kind": "cta",
+        "alt": "Create with Studio Romann",
+        "tile": "/tiles/create-cta.png",
+        "href": null
+      },
+      {
+        "kind": "project",
+        "slug": "find-your-voice",
+        "title": "FIND YOUR VOICE"
+      },
+      {
+        "kind": "project",
+        "slug": "the-dance-vol-10",
+        "title": "THE DANCE VOL. 10"
+      },
+      {
+        "kind": "project",
+        "slug": "williamsburg-bridge-set",
+        "title": "WILLIAMSBURG BRIDGE SET"
+      },
+      {
+        "kind": "project",
+        "slug": "album-art",
+        "title": "ALBUM ART"
+      },
+      {
+        "kind": "project",
+        "slug": "rn",
+        "title": "RN"
+      },
+      {
+        "kind": "project",
+        "slug": "rajasthan",
+        "title": "RAJASTHAN"
+      },
+      {
+        "kind": "project",
+        "slug": "silver-lining",
+        "title": "SILVER LINING"
+      },
+      {
+        "kind": "project",
+        "slug": "couch-prints",
+        "title": "COUCH PRINTS"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "here-stills",
+      "title": "HERE. STILLS",
+      "client": "MILO",
+      "about": "VHS stills from Milo’s “here.” series.",
+      "kind": [
+        "Photography"
+      ],
+      "year": "2026",
+      "layout": "stills",
+      "tile": "/here-stills/here-still-1.png",
+      "tilePosition": null,
+      "route": "/work/here-stills",
+      "pageTitle": "HERE. STILLS — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-1.png",
+          "alt": "here. still 1"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-2.png",
+          "alt": "here. still 2"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-3.png",
+          "alt": "here. still 3"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-4.png",
+          "alt": "here. still 4"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-5.png",
+          "alt": "here. still 5"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-6.png",
+          "alt": "here. still 6"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-7.png",
+          "alt": "here. still 7"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-8.png",
+          "alt": "here. still 8"
+        },
+        {
+          "type": "image",
+          "src": "/here-stills/here-still-9.png",
+          "alt": "here. still 9"
+        }
+      ]
+    },
+    {
+      "slug": "here",
+      "title": "HERE.",
+      "client": "MILO",
+      "about": "VHS video and editing for Milo’s video series, “here.”",
+      "kind": [
+        "Videography",
+        "Video Editing"
+      ],
+      "year": "2026",
+      "layout": "wide",
+      "tile": "/here/here-hero.png",
+      "tilePosition": null,
+      "route": "/work/here",
+      "pageTitle": "HERE. — Studio Romann",
+      "media": [
+        {
+          "type": "video",
+          "src": "/here/video/here-video-1.mp4",
+          "poster": "/here/here-hero.png"
+        }
+      ]
+    },
+    {
+      "slug": "nyotaimori",
+      "title": "NYOTAIMORI",
+      "client": "NUBLU STUDIO 151",
+      "about": "Poster design for Nublu Studio 151 appearing in ONLYCHILD Mag. Original image by Antonia Singer.",
+      "kind": [
+        "Graphic Design",
+        "Typography"
+      ],
+      "year": "2023",
+      "layout": "centered",
+      "tile": "/nyotaimori/nyotaimori-image.png",
+      "tilePosition": "50% 0%",
+      "route": "/work/nyotaimori",
+      "pageTitle": "NYOTAIMORI — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/nyotaimori/nyotaimori-image.png",
+          "alt": "Nyotaimori poster"
+        }
+      ]
+    },
+    {
+      "slug": "live-at-arthur-ashe",
+      "title": "LIVE AT ARTHUR ASHE",
+      "client": "SWEDISH HOUSE MAFIA",
+      "about": "Digital marketing OOH (Adjacker) for Swedish House Mafia’s Arthur Ashe Stadium show. A bold campaign that pushed boundaries by hacking billboards and turning public space into a global moment.",
+      "kind": [
+        "Adjacker",
+        "Marketing",
+        "Motion"
+      ],
+      "year": "2025",
+      "layout": "wide",
+      "tile": "/live-at-arthur-ashe/live-at-arthur-ashe-hero.png",
+      "tilePosition": "28% 100%",
+      "route": "/work/live-at-arthur-ashe",
+      "pageTitle": "LIVE AT ARTHUR ASHE — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/live-at-arthur-ashe/live-at-arthur-ashe-hero.png",
+          "alt": "Live at Arthur Ashe"
+        }
+      ]
+    },
+    {
+      "slug": "harbor",
+      "title": "HARBOR",
+      "client": "HARBOR STUDIOS",
+      "about": "Branding for Harbor Studios, a music studio located in Red hook, Brooklyn.",
+      "kind": [
+        "Art Direction",
+        "Branding"
+      ],
+      "year": "2026",
+      "layout": "harbor",
+      "tile": "/harbor/harbor-hero.png",
+      "tilePosition": "3% 50%",
+      "route": "/work/harbor",
+      "pageTitle": "HARBOR — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/harbor/harbor-red-logo.png",
+          "alt": "Harbor Studios logo"
+        },
+        {
+          "type": "card-pair",
+          "front": "/harbor/harbor-card-front-eric.png",
+          "back": "/harbor/harbor-card-back-eric.png",
+          "alt": "Eric Sanderson card"
+        },
+        {
+          "type": "card-pair",
+          "front": "/harbor/harbor-card-front-olav.png",
+          "back": "/harbor/harbor-card-back-olav.png",
+          "alt": "Olav Christensen card"
+        },
+        {
+          "type": "card-pair",
+          "front": "/harbor/harbor-card-front-peter.png",
+          "back": "/harbor/harbor-card-back-peter.png",
+          "alt": "Peter Tavoulareas card"
+        },
+        {
+          "type": "card-pair",
+          "front": "/harbor/harbor-card-front-matthew.png",
+          "back": "/harbor/harbor-card-back-matthew.png",
+          "alt": "Matthew Stenroos card"
+        }
+      ]
+    },
+    {
+      "slug": "the-dance-vol-4",
+      "title": "THE DANCE VOL. 4",
+      "client": "MATTE PROJECTS",
+      "about": "Poster for a Matt Projects party at Pardon My French. ",
+      "kind": [
+        "Photography",
+        "Graphic Design"
+      ],
+      "year": "2023",
+      "layout": "wide",
+      "tile": "/the-dance-vol-4/the-dance-vol-4-image.png",
+      "tilePosition": "0% 50%",
+      "route": "/work/the-dance-vol-4",
+      "pageTitle": "THE DANCE VOL. 4 — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/the-dance-vol-4/the-dance-vol-4-image.png",
+          "alt": "The Dance Vol. 4"
+        }
+      ]
+    },
+    {
+      "slug": "vincent-randazzo",
+      "title": "VINCENT RANDAZZO",
+      "client": "HARBOR STUDIOS",
+      "about": "Video for singer/songwriter, Vincent Randazzo, recording at Harbor Studios.",
+      "kind": [
+        "Videography",
+        "Video Editing"
+      ],
+      "year": "2026",
+      "layout": "wide",
+      "tile": "/vincent-randazzo/vincent-randazzo-still-1.png",
+      "tilePosition": null,
+      "route": "/work/vincent-randazzo",
+      "pageTitle": "VINCENT RANDAZZO — Studio Romann",
+      "media": [
+        {
+          "type": "video",
+          "src": "/vincent-randazzo/video/vincent-randazzo-video-1.mp4",
+          "poster": "/vincent-randazzo/vincent-randazzo-still-1.png"
+        },
+        {
+          "type": "image",
+          "src": "/vincent-randazzo/vincent-randazzo-still-1.png",
+          "alt": "Vincent Randazzo still 1"
+        },
+        {
+          "type": "image",
+          "src": "/vincent-randazzo/vincent-randazzo-still-2.png",
+          "alt": "Vincent Randazzo still 2"
+        },
+        {
+          "type": "image",
+          "src": "/vincent-randazzo/vincent-randazzo-still-3.png",
+          "alt": "Vincent Randazzo still 3"
+        },
+        {
+          "type": "image",
+          "src": "/vincent-randazzo/vincent-randazzo-still-4.png",
+          "alt": "Vincent Randazzo still 4"
+        }
+      ]
+    },
+    {
+      "slug": "the-salon",
+      "title": "THE SALON",
+      "client": "PALO GALLERY",
+      "about": "Full page spread for Palo Gallery featured in Onlychild Magazine.",
+      "kind": [
+        "Photography",
+        "Graphic Design"
+      ],
+      "year": "2023",
+      "layout": "wide",
+      "tile": "/the-salon/the-salon-hero.png",
+      "tilePosition": "100% 100%",
+      "route": "/work/the-salon",
+      "pageTitle": "THE SALON — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/the-salon/the-salon-hero.png",
+          "alt": "The Salon"
+        }
+      ]
+    },
+    {
+      "slug": "lillys-show",
+      "title": "LILLY’S SHOW",
+      "client": "PALO GALLERY",
+      "about": "VHS video and editing for photographer Lilly Burgess’ show at Palo Gallery. Original score by Milo.",
+      "kind": [
+        "Videography",
+        "Video Editing"
+      ],
+      "year": "2026",
+      "layout": "wide",
+      "tile": "/lillys-show/lillys-show-hero.png",
+      "tilePosition": null,
+      "route": "/work/lillys-show",
+      "pageTitle": "LILLY’S SHOW — Studio Romann",
+      "media": [
+        {
+          "type": "video",
+          "src": "/lillys-show/video/lillys-show-video.mp4",
+          "poster": "/lillys-show/lillys-show-hero.png"
+        }
+      ]
+    },
+    {
+      "slug": "earth-swallow-me-whole",
+      "title": "EARTH SWALLOW ME WHOLE",
+      "client": "TALLEN",
+      "about": "Album artwork for Narrows End’s single, Silver Lining.",
+      "kind": [
+        "Graphic Design"
+      ],
+      "year": "2026",
+      "layout": "centered",
+      "tile": "/earth-swallow-me-whole/earth-swallow-me-whole-cover.png",
+      "tilePosition": "50% 100%",
+      "route": "/work/earth-swallow-me-whole",
+      "pageTitle": "EARTH SWALLOW ME WHOLE — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/earth-swallow-me-whole/earth-swallow-me-whole-cover.png",
+          "alt": "Earth Swallow Me Whole cover"
+        }
+      ]
+    },
+    {
+      "slug": "the-fitting",
+      "title": "THE FITTING",
+      "client": "TEARS DROP",
+      "about": "VHS video and editing for Tears Drop. Jewelry designer, Naz Yilmaz, fitting Lilly Burgess for her show at Palo Gallery.",
+      "kind": [
+        "Videography",
+        "Video Editing"
+      ],
+      "year": "2026",
+      "layout": "wide",
+      "tile": "/the-fitting/the-fitting-hero.png",
+      "tilePosition": null,
+      "route": "/work/the-fitting",
+      "pageTitle": "THE FITTING — Studio Romann",
+      "media": [
+        {
+          "type": "video",
+          "src": "/the-fitting/video/the-fitting-video.mp4",
+          "poster": "/the-fitting/the-fitting-hero.png"
+        }
+      ]
+    },
+    {
+      "slug": "rebel",
+      "title": "REBEL",
+      "client": "BAR REBEL",
+      "about": "Editorial design and layout for Milo featuring photography by Andrew Womack.",
+      "kind": [
+        "Editorial",
+        "Graphic Design",
+        "Typography"
+      ],
+      "year": "2024",
+      "layout": "stacked",
+      "tile": "/rebel/rebel-hero.jpg",
+      "tilePosition": "50% 71%",
+      "route": "/work/rebel",
+      "pageTitle": "REBEL — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/rebel/rebel-hero.jpg",
+          "alt": "Bar Rebel",
+          "frame": "wide"
+        },
+        {
+          "type": "image",
+          "src": "/rebel/rebel-logo.png",
+          "alt": "Bar Rebel logo",
+          "frame": "wide"
+        },
+        {
+          "type": "image",
+          "src": "/rebel/rebel-menu.png",
+          "alt": "Bar Rebel menu",
+          "frame": "centered"
+        }
+      ]
+    },
+    {
+      "slug": "poeppel",
+      "title": "POEPPEL",
+      "client": "ALEX POEPPEL",
+      "about": "Branding for producer and mixing engineer Alex Poeppel.",
+      "kind": [
+        "Branding",
+        "Graphic Design"
+      ],
+      "year": "2025",
+      "layout": "stacked",
+      "tile": "/poeppel/poeppel-tile.png",
+      "tilePosition": null,
+      "route": "/work/poeppel",
+      "pageTitle": "POEPPEL — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/poeppel/poeppel-desktop.png",
+          "alt": "Poeppel desktop",
+          "frame": "full"
+        },
+        {
+          "type": "image",
+          "src": "/poeppel/poeppel-cards.png",
+          "alt": "Poeppel cards",
+          "frame": "full"
+        },
+        {
+          "type": "image",
+          "src": "/poeppel/poeppel-tracking-sheet.png",
+          "alt": "Poeppel tracking sheet",
+          "frame": "full"
+        }
+      ]
+    },
+    {
+      "slug": "how-to-wring-a-dream",
+      "title": "HOW TO WRING A DREAM",
+      "client": "MILO",
+      "about": "Editorial design and layout for Milo featuring photography by Andrew Womack.",
+      "kind": [
+        "Editorial",
+        "Graphic Design",
+        "Typography"
+      ],
+      "year": "2024",
+      "layout": "stacked",
+      "tile": "/how-to-wring-a-dream/how-to-wring-a-dream-hero.png",
+      "tilePosition": "100% 50%",
+      "route": "/work/how-to-wring-a-dream",
+      "pageTitle": "HOW TO WRING A DREAM — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/how-to-wring-a-dream/how-to-wring-a-dream-hero.png",
+          "alt": "How to Wring a Dream"
+        },
+        {
+          "type": "image",
+          "src": "/how-to-wring-a-dream/how-to-wring-a-dream-2.png",
+          "alt": "How to Wring a Dream detail"
+        }
+      ]
+    },
+    {
+      "slug": "find-your-voice",
+      "title": "FIND YOUR VOICE",
+      "client": "TITLES",
+      "about": "Motion advertisement for Titles’ announcement of Text to Speech.",
+      "kind": [
+        "Motion Graphics",
+        "Video Editing"
+      ],
+      "year": "2026",
+      "layout": "wide",
+      "tile": "/find-your-voice/find-your-voice-hero.png",
+      "tilePosition": null,
+      "route": "/work/find-your-voice",
+      "pageTitle": "FIND YOUR VOICE — Studio Romann",
+      "media": [
+        {
+          "type": "video",
+          "src": "/find-your-voice/video/FIND YOUR VOICE v1.mp4",
+          "poster": "/find-your-voice/find-your-voice-hero.png"
+        }
+      ]
+    },
+    {
+      "slug": "the-dance-vol-10",
+      "title": "THE DANCE VOL. 10",
+      "client": "CHANNEL 1",
+      "about": "Flyer for Channel 1’s The Dance Vol. 10 at Omakase Bar Juku in New York City. The title was rendered in soy sauce, with chopsticks crossing to form an X for Volume 10.",
+      "kind": [
+        "Photography",
+        "Graphic Design"
+      ],
+      "year": "2024",
+      "layout": "wide",
+      "tile": "/the-dance-vol-10/the-dance-vol-10-hero.png",
+      "tilePosition": "16% 50%",
+      "route": "/work/the-dance-vol-10",
+      "pageTitle": "THE DANCE VOL. 10 — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/the-dance-vol-10/the-dance-vol-10-hero.png",
+          "alt": "The Dance Vol. 10"
+        }
+      ]
+    },
+    {
+      "slug": "williamsburg-bridge-set",
+      "title": "WILLIAMSBURG BRIDGE SET",
+      "client": "EMMA X",
+      "about": "Poster for pop-up DJ sets at the Williamsburg Bridge center pathway.",
+      "kind": [
+        "Graphic Design",
+        "Typography"
+      ],
+      "year": "2023",
+      "layout": "centered",
+      "tile": "/williamsburg-bridge-set/williamsburg-bridge-set-poster.png",
+      "tilePosition": "50% 29%",
+      "route": "/work/williamsburg-bridge-set",
+      "pageTitle": "WILLIAMSBURG BRIDGE SET — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/williamsburg-bridge-set/williamsburg-bridge-set-poster.png",
+          "alt": "Williamsburg Bridge Set poster"
+        }
+      ]
+    },
+    {
+      "slug": "album-art",
+      "title": "ALBUM ART",
+      "client": "MILO",
+      "about": "Album artwork for Milo.",
+      "kind": [
+        "Graphic Design",
+        "Typography"
+      ],
+      "year": "2018-2026",
+      "layout": "album",
+      "tile": "/album-art/album-art-1.png",
+      "tilePosition": "50% 60%",
+      "route": "/work/album-art",
+      "pageTitle": "ALBUM ART — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/album-art/album-art-1.png",
+          "alt": "Album art 1"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-2.png",
+          "alt": "Album art 2"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-3.png",
+          "alt": "Album art 3"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-4.png",
+          "alt": "Album art 4"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-5.png",
+          "alt": "Album art 5"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-6.png",
+          "alt": "Album art 6"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-7.png",
+          "alt": "Album art 7"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-8.png",
+          "alt": "Album art 8"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-9.png",
+          "alt": "Album art 9"
+        },
+        {
+          "type": "image",
+          "src": "/album-art/album-art-10.png",
+          "alt": "Album art 10"
+        }
+      ]
+    },
+    {
+      "slug": "rn",
+      "title": "RN",
+      "client": "OPP",
+      "about": "Album artwork for OPP’s single, RN featuring Julian Soto.",
+      "kind": [
+        "Graphic Design"
+      ],
+      "year": "2026",
+      "layout": "centered",
+      "tile": "/rn/rn-cover.png",
+      "tilePosition": null,
+      "route": "/work/rn",
+      "pageTitle": "RN — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/rn/rn-cover.png",
+          "alt": "RN cover"
+        }
+      ]
+    },
+    {
+      "slug": "rajasthan",
+      "title": "RAJASTHAN",
+      "client": "WEST ELM",
+      "about": "Closing credits for a black-and-white short film shot in Rajasthan for West Elm, in collaboration with Gentl & Hyers.",
+      "kind": [
+        "Motion Graphics",
+        "Typography"
+      ],
+      "year": "2024",
+      "layout": "wide",
+      "tile": "/rajasthan/rajasthan-hero.png",
+      "tilePosition": null,
+      "route": "/work/rajasthan",
+      "pageTitle": "RAJASTHAN — Studio Romann",
+      "media": [
+        {
+          "type": "video",
+          "src": "/rajasthan/video/rajasthan-credits.mp4",
+          "poster": "/rajasthan/rajasthan-hero.png"
+        }
+      ]
+    },
+    {
+      "slug": "silver-lining",
+      "title": "SILVER LINING",
+      "client": "NARROWS END",
+      "about": "Album artwork for Narrows End’s single, Silver Lining.",
+      "kind": [
+        "Graphic Design"
+      ],
+      "year": "2026",
+      "layout": "centered",
+      "tile": "/silver-lining/silver-lining-cover.png",
+      "tilePosition": "0% 50%",
+      "route": "/work/silver-lining",
+      "pageTitle": "SILVER LINING — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/silver-lining/silver-lining-cover.png",
+          "alt": "Silver Lining cover"
+        }
+      ]
+    },
+    {
+      "slug": "couch-prints",
+      "title": "COUCH PRINTS",
+      "client": "COUCH PRINTS",
+      "about": "Print series for Couch Prints.",
+      "kind": [
+        "Photography",
+        "Print"
+      ],
+      "year": "2025",
+      "layout": "wide",
+      "tile": "/couch-prints/couch-prints-hero.png",
+      "tilePosition": "50% 56%",
+      "route": "/work/couch-prints",
+      "pageTitle": "COUCH PRINTS — Studio Romann",
+      "media": [
+        {
+          "type": "image",
+          "src": "/couch-prints/couch-prints-hero.png",
+          "alt": "Couch Prints"
+        }
+      ]
+    }
+  ],
+  "designTokens": {
+    "background": "#0c0c0c",
+    "foreground": "#ffffff",
+    "muted": "#dddddd",
+    "gapDesktop": "32px",
+    "gapMobile": "16px",
+    "radius": "30px",
+    "maxWidth": "1685px",
+    "pagePadDesktop": "22px",
+    "pagePadMobile": "14px",
+    "hoverScale": 1.05,
+    "hoverDurationMs": 200,
+    "gridColsDesktop": 3,
+    "gridColsMobile": 2,
+    "breakpointPx": 900,
+    "tileAspect": "536/442"
+  },
+  "brd": {
+    "path": "docs/BRD.md",
+    "baselineVersion": "version-001",
+    "date": "2026-08-02",
+    "status": "Baseline (saved snapshot)",
+    "contact": "hello@studioromann.com",
+    "markdown": "# Studio Romann Website — Business Requirements Document (BRD)\n\n| Field | Value |\n|--------|--------|\n| **Product** | Studio Romann portfolio website |\n| **Document** | BRD |\n| **Baseline version** | **version-001** |\n| **Date** | 2026-08-02 |\n| **Status** | Baseline (saved snapshot) |\n| **Contact** | hello@studioromann.com |\n\n---\n\n## 1. Purpose\n\nDeliver a dark, editorial portfolio site for Studio Romann (New York City) that:\n\n1. Opens with a branded letter→project morph animation synced to a randomized homepage grid\n2. Showcases 22 case-study projects with appropriate media layouts\n3. Lets visitors contact the studio via email\n4. Feels seamless from intro into browsing, on desktop and mobile\n\n**version-001** is the first saved baseline of this product: feature-complete homepage intro (shuffle + video morph + third-row cascade), case study pages, footer, and preview tooling as of 2026-08-02.\n\n---\n\n## 2. Scope\n\n### In scope (version-001)\n\n- Static Next.js marketing/portfolio site\n- Homepage opening animation + project grid\n- Case study pages for all catalogued projects\n- Shared footer and contact mailto\n- Desktop (3-col) and mobile (2-col) layouts\n- Local preview page for layout comparison\n\n### Out of scope (version-001)\n\n- CMS / admin editing\n- User accounts, auth, or payments\n- Contact form backend (mailto only)\n- Light mode / alternate themes\n- Blog, about page, or primary site navigation chrome\n- Analytics / tracking integrations\n\n---\n\n## 3. Tech stack (version-001)\n\n| Layer | Choice |\n|--------|--------|\n| Framework | Next.js 15 (App Router) |\n| UI | React 19 + TypeScript |\n| Styling | Global CSS (`app/globals.css`), design tokens via CSS variables |\n| Font | Inter (`next/font`) |\n| Data | Static TypeScript catalog in `lib/projects.ts` |\n| Media | Files under `public/` (images, MP4s, brand, footer) |\n| Deploy shape | Static-friendly SSG for `/work/[slug]` |\n\n---\n\n## 4. Routes & information architecture\n\n| Route | Function |\n|--------|----------|\n| `/` | Homepage: opening animation → shuffled project grid → footer |\n| `/work/[slug]` | Case study for one project (SSG; 404 if unknown) |\n| `/preview` | Dev helper: desktop vs mobile iframes of home with opening skipped |\n\n**Primary navigation**\n\n- Home: project tiles → case studies\n- Case study: top-left R logo → home\n- Footer Contact → `mailto:hello@studioromann.com`\n\n---\n\n## 5. Features & functionality\n\n### 5.1 Opening animation (homepage)\n\n| ID | Requirement | version-001 behavior |\n|----|-------------|----------------------|\n| OA-01 | Branded intro | Letters **R O M A N N** appear in a 3×N tile grid matching homepage metrics |\n| OA-02 | R stays | Slot 0 (R) remains as the brand tile |\n| OA-03 | Letter → project morph | O M A N N crossfade into the first five **shuffled** non-brand grid items |\n| OA-04 | Order coupling | Morph destinations **are** the shuffled homepage order (animation reflects load order) |\n| OA-05 | Next-row continue | After OMANN morph, next row (3 tiles) cascades in with the same stagger |\n| OA-06 | Video during morph | If a morph target is a video project, its muted looping video plays as it appears |\n| OA-07 | Seamless handoff | Overlay uses same padding/gap/radius as the live grid; grid reveals underneath; no layout jump |\n| OA-08 | Timing | ~2.26s Figma letter/morph timeline; total ~2.55s including next row; handoff ~2.48s |\n| OA-09 | Skip | Click anywhere to skip; `?skipOpening=1` skips; `prefers-reduced-motion` skips |\n| OA-10 | Once per session | `sessionStorage` key `sr-opening-seen`; `?forceOpening=1` clears and replays |\n\n### 5.2 Homepage project grid\n\n| ID | Requirement | version-001 behavior |\n|----|-------------|----------------------|\n| HG-01 | Grid density | 24 cells: brand R + 22 projects + 1 CTA |\n| HG-02 | Columns | Desktop **3**; mobile (≤900px) **2** |\n| HG-03 | Shuffle | Brand R fixed first; remaining 23 items Fisher–Yates shuffled **each load** |\n| HG-04 | Tile shape | Aspect 536∶442, 30px radius (unchanged across breakpoints) |\n| HG-05 | Hover | Interactive tiles scale to **1.05** in 200ms ease-out |\n| HG-06 | Index videos | Projects with video media autoplay muted/loop in the tile after opening handoff |\n| HG-07 | Brand tile | Non-link R using `/brand/romann-logo-r.png` (matches opening end frame) |\n| HG-08 | CTA tile | “Create with Studio Romann” image tile; static (no href) in version-001 |\n| HG-09 | Navigation | Project tiles link to `/work/{slug}` |\n\n### 5.3 Case study pages\n\n| ID | Requirement | version-001 behavior |\n|----|-------------|----------------------|\n| CS-01 | Header | R home link; title; client; About / Kind / Year |\n| CS-02 | R styling | Transparent letter SVG, 30px radius, same hover scale as tiles |\n| CS-03 | Layouts | `centered`, `wide`, `harbor`, `stills`, `album` (see §6) |\n| CS-04 | Video UX | Autoplay muted loop; **click toggles volume**; no native control chrome |\n| CS-05 | Mute affordance | Hover/focus shows mute/unmute icon; on touch, muted icon stays visible while muted |\n| CS-06 | Harbor cards | Logo + front/back image pairs (side by side) |\n| CS-07 | Metadata | Page title `{Project} — Studio Romann`; description from About copy |\n\n### 5.4 Footer\n\n| ID | Requirement | version-001 behavior |\n|----|-------------|----------------------|\n| FT-01 | Branding | STUDIO wordmark · New York City · Contact · ROMANN wordmark |\n| FT-02 | Contact | Mailto `hello@studioromann.com` |\n| FT-03 | Placement | Shared on homepage and all case studies |\n\n### 5.5 Responsive & accessibility\n\n| ID | Requirement | version-001 behavior |\n|----|-------------|----------------------|\n| RA-01 | Breakpoint | `max-width: 900px` → 2-col grid, stacked header meta, single-col media grids |\n| RA-02 | Reduced motion | Opening skipped; CSS animations/transitions minimized; hover scale disabled |\n| RA-03 | Semantics | List roles on grid; aria-labels on project links and video mute control |\n| RA-04 | Language | `lang=\"en\"` |\n\n### 5.6 Developer / QA helpers\n\n| ID | Requirement | version-001 behavior |\n|----|-------------|----------------------|\n| DV-01 | Preview | `/preview` — desktop (1280×900) and mobile (390×844) iframes of `/?skipOpening=1` |\n| DV-02 | Force intro | `/?forceOpening=1` |\n| DV-03 | Skip intro | `/?skipOpening=1` |\n\n---\n\n## 6. Project catalog (version-001)\n\n22 case studies. Video projects play in homepage tiles and on their case study pages.\n\n| Slug | Title | Layout | Notes |\n|------|--------|--------|--------|\n| `here-stills` | HERE. STILLS | stills | 9-image grid |\n| `here` | HERE. | wide | Video |\n| `nyotaimori` | NYOTAIMORI | centered | Poster |\n| `live-at-arthur-ashe` | LIVE AT ARTHUR ASHE | wide | Campaign still |\n| `harbor` | HARBOR | harbor | Logo + 4 card pairs |\n| `the-dance-vol-4` | THE DANCE VOL. 4 | wide | Poster |\n| `vincent-randazzo` | VINCENT RANDAZZO | wide | Video + stills |\n| `the-salon` | THE SALON | wide | Still |\n| `lillys-show` | LILLY'S SHOW | wide | Video |\n| `earth-swallow-me-whole` | EARTH SWALLOW ME WHOLE | centered | Poster |\n| `the-fitting` | THE FITTING | wide | Video |\n| `rebel` | REBEL | wide | Still |\n| `poeppel` | POEPPEL | wide | Multi-image |\n| `how-to-wring-a-dream` | HOW TO WRING A DREAM | wide | Multi-image |\n| `find-your-voice` | FIND YOUR VOICE | wide | Video |\n| `the-dance-vol-10` | THE DANCE VOL. 10 | wide | Poster |\n| `williamsburg-bridge-set` | WILLIAMSBURG BRIDGE SET | centered | Poster |\n| `album-art` | ALBUM ART | album | 10-image grid |\n| `rn` | RN | centered | Still |\n| `rajasthan` | RAJASTHAN | wide | Video |\n| `silver-lining` | SILVER LINING | centered | Still |\n| `couch-prints` | COUCH PRINTS | wide | Still |\n\n**Homepage cell order (canonical, pre-shuffle):** brand R → projects above (through how-to-wring-a-dream) → CTA → remaining projects (find-your-voice … couch-prints). At runtime only the brand stays fixed; all other cells shuffle.\n\n---\n\n## 7. Design tokens (version-001)\n\n| Token | Value | Use |\n|--------|--------|-----|\n| Background | `#0c0c0c` | Page |\n| Foreground | `#ffffff` / muted `#dddddd` | Text |\n| Gap | `32px` desktop / `16px` mobile | Grid |\n| Radius | `30px` | Tiles (fixed across breakpoints) |\n| Max width | `1685px` | Content shell |\n| Page pad | `22px` / `14px` mobile | Horizontal inset |\n| Hover scale | `1.05` @ 200ms ease-out | Tiles / header R |\n\n---\n\n## 8. Non-functional requirements\n\n| ID | Requirement | version-001 |\n|----|-------------|-------------|\n| NF-01 | Performance | Next Image (AVIF/WebP); opening preloads morph assets; videos muted for autoplay |\n| NF-02 | Offline/CMS | None — static data and files |\n| NF-03 | Browser | Modern evergreen; autoplay muted video supported |\n| NF-04 | Privacy | No analytics in baseline |\n\n---\n\n## 9. Known gaps / follow-ups (not blocking version-001)\n\n- CTA tile has no destination URL yet\n- `FlipCard` component exists but Harbor uses static front/back pairs\n- `public/opening/opening.mp4` is present but unused (superseded by DOM morph for shuffle + seamless handoff)\n- Some About/Kind/Year copy may still be approximate vs Figma source\n\n---\n\n## 10. Version history\n\n| Version | Date | Summary |\n|---------|------|---------|\n| **version-001** | 2026-08-02 | Baseline: shuffled seamless letter→project intro with video morph + next-row cascade; 22 case studies; mute-toggle project videos; footer contact; responsive 3/2 grid; `/preview` |\n\nFuture versions should append rows here and keep this BRD updated (or add `docs/BRD-version-00N.md` deltas if preferred).\n\n---\n\n## 11. Acceptance checklist (version-001)\n\n- [x] Homepage plays letter morph into **shuffled** projects with matching handoff\n- [x] Video projects play during morph and in index tiles after handoff\n- [x] Next grid row continues the intro cascade\n- [x] Opening plays once per session; force/skip query params work\n- [x] All 22 `/work/[slug]` pages render with correct layout type\n- [x] Project videos: no native overlay; click mute/unmute; hover mute icon\n- [x] Footer contact mailto works\n- [x] Desktop 3-col / mobile 2-col grids\n- [x] Reduced-motion skips opening\n- [x] This BRD documents version-001\n"
+  }
+}

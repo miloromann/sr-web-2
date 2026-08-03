@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { getOpeningTileDelayMs } from "@/components/OpeningAnimation";
+import { MutedAutoplayVideo } from "@/components/MutedAutoplayVideo";
 import { captureHomeScrollFromWindow } from "@/lib/home-scroll";
 import type { GridItem, Project } from "@/lib/projects";
 
@@ -56,15 +57,10 @@ function TileMedia({
   // Single video element on the live grid — plays straight through the intro
   if (video && enableVideos) {
     return (
-      <video
+      <MutedAutoplayVideo
         className="tile-media"
         src={video.src}
         poster={video.poster ?? project.tile}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
         aria-hidden
       />
     );

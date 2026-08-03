@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { MediaItem, Project } from "@/lib/projects";
 
 function FlipCard({
@@ -38,15 +38,45 @@ function ProjectVideo({ src, poster }: { src: string; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el) return;
+
+    el.defaultMuted = true;
+    el.muted = true;
+    el.playsInline = true;
+    el.setAttribute("playsinline", "");
+    el.setAttribute("webkit-playsinline", "");
+    el.setAttribute("muted", "");
+
+    const tryPlay = () => {
+      el.muted = true;
+      void el.play().catch(() => {});
+    };
+
+    tryPlay();
+    el.addEventListener("loadeddata", tryPlay);
+    el.addEventListener("canplay", tryPlay);
+
+    const unlock = () => tryPlay();
+    window.addEventListener("touchstart", unlock, { passive: true, once: true });
+    window.addEventListener("scroll", unlock, { passive: true, once: true });
+
+    return () => {
+      el.removeEventListener("loadeddata", tryPlay);
+      el.removeEventListener("canplay", tryPlay);
+      window.removeEventListener("touchstart", unlock);
+      window.removeEventListener("scroll", unlock);
+    };
+  }, [src]);
+
   const toggleMute = useCallback(() => {
     const el = videoRef.current;
     if (!el) return;
     const next = !el.muted;
     el.muted = next;
     setMuted(next);
-    if (!next) {
-      void el.play();
-    }
+    void el.play().catch(() => {});
   }, []);
 
   return (
@@ -66,6 +96,9 @@ function ProjectVideo({ src, poster }: { src: string; poster?: string }) {
         loop
         playsInline
         preload="auto"
+        controls={false}
+        disablePictureInPicture
+        disableRemotePlayback
       />
       <span className="project-video__hint" aria-hidden>
         {muted ? (

@@ -6,7 +6,9 @@ import {
   useRef,
   useState,
   type CSSProperties,
+  type ReactNode,
 } from "react";
+import { content } from "@/lib/content";
 
 export type AboutOrigin = {
   top: number;
@@ -22,21 +24,43 @@ type Phase = "idle" | "enter" | "open" | "exit";
 export const ABOUT_RETURN_STAGGER_MS = 70;
 export const ABOUT_RETURN_TILE_MS = 80;
 
-const ABOUT_COPY = (
-  <>
-    <strong>Studio Romann</strong> is a multidisciplinary creative studio
-    specializing in brand strategy, design, and activation. Founded by Milo
-    Romaguera, the studio collaborates with cultural and commercial partners
-    across the globe to craft bold, enduring identities. Our{" "}
-    <strong>design</strong> process is rooted in attentive observation, drawing
-    inspiration from the environments we inhabit and the experiences that shape
-    us. This sensitivity allows us to translate vision into form{" "}
-    <strong>with</strong> nuance and <strong>intention</strong>. Through
-    thoughtful strategy and expressive design, we create work that resonates,
-    allowing brands to communicate authentically with their intended audiences
-    while opening pathways to new possibilities.
-  </>
-);
+/** Bold first occurrence of each word from content-reference.json → about.boldWords */
+function renderAboutCopy(copy: string, boldWords: string[]): ReactNode {
+  const parts: ReactNode[] = [];
+  let remaining = copy;
+  let key = 0;
+
+  const targets = [...boldWords].sort((a, b) => b.length - a.length);
+
+  while (remaining.length > 0) {
+    let bestIndex = -1;
+    let bestWord = "";
+    for (const word of targets) {
+      const idx = remaining.indexOf(word);
+      if (idx === -1) continue;
+      if (bestIndex === -1 || idx < bestIndex) {
+        bestIndex = idx;
+        bestWord = word;
+      }
+    }
+
+    if (bestIndex === -1) {
+      parts.push(remaining);
+      break;
+    }
+
+    if (bestIndex > 0) {
+      parts.push(remaining.slice(0, bestIndex));
+    }
+    parts.push(<strong key={key++}>{bestWord}</strong>);
+    remaining = remaining.slice(bestIndex + bestWord.length);
+    // Only bold the first hit for each word
+    const used = targets.indexOf(bestWord);
+    if (used !== -1) targets.splice(used, 1);
+  }
+
+  return <>{parts}</>;
+}
 
 function prefersReducedMotion() {
   return (
@@ -169,30 +193,42 @@ export function AboutOverlay({
           <button
             type="button"
             className="about-overlay__close"
-            aria-label="Close about"
+            aria-label={content.labels.aria.closeAbout}
             onClick={onClose}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/about/close.svg" alt="" width={41} height={41} />
+            <img
+              src={content.about.assets.close}
+              alt=""
+              width={41}
+              height={41}
+            />
           </button>
 
           <div className="about-overlay__layout">
             <h1 id="about-title" className="about-overlay__heading">
-              ABOUT
+              {content.about.heading}
             </h1>
 
             <div className="about-overlay__copy">
-              <p>{ABOUT_COPY}</p>
+              <p>
+                {renderAboutCopy(content.about.copy, content.about.boldWords)}
+              </p>
             </div>
 
             <button
               type="button"
               className="about-overlay__mark"
-              aria-label="Close about"
+              aria-label={content.labels.aria.closeAbout}
               onClick={onClose}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/about/r-mark.svg" alt="" width={100} height={84} />
+              <img
+                src={content.about.assets.mark}
+                alt=""
+                width={100}
+                height={84}
+              />
             </button>
           </div>
         </div>

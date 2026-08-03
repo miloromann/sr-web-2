@@ -120,6 +120,19 @@ button {
   pointer-events: none;
 }
 
+/* Hide iOS/Safari native play overlay on muted autoplay tiles */
+video.tile-media::-webkit-media-controls-start-playback-button,
+video.tile-media::-webkit-media-controls,
+.project-video video::-webkit-media-controls-start-playback-button,
+.project-video video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
 .tile-shell {
   position: absolute;
   inset: 0;
