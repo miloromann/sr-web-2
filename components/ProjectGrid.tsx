@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { CSSProperties, ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import { getOpeningTileDelayMs } from "@/components/OpeningAnimation";
 import { MutedAutoplayVideo } from "@/components/MutedAutoplayVideo";
 import { captureHomeScrollFromWindow, markHomeScrollPendingRestore } from "@/lib/home-scroll";
@@ -53,16 +53,24 @@ function TileMedia({
   enableVideos: boolean;
 }) {
   const video = getTileVideo(project);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
-  // Single video element on the live grid — plays straight through the intro
+  // Video projects: still poster under the video until playback actually starts
+  // (hides iOS’s big play button while muted autoplay is negotiating).
   if (video && enableVideos) {
     return (
-      <MutedAutoplayVideo
-        className="tile-media"
-        src={video.src}
-        poster={video.poster ?? project.tile}
-        aria-hidden
-      />
+      <>
+        <TileImage
+          src={video.poster ?? project.tile}
+          alt=""
+        />
+        <MutedAutoplayVideo
+          className={`tile-media tile-media--video${videoPlaying ? " is-playing" : ""}`}
+          src={video.src}
+          onPlayingChange={setVideoPlaying}
+          aria-hidden
+        />
+      </>
     );
   }
 

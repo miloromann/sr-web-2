@@ -120,17 +120,32 @@ button {
   pointer-events: none;
 }
 
-/* Hide iOS/Safari native play overlay on muted autoplay tiles */
-video.tile-media::-webkit-media-controls-start-playback-button,
-video.tile-media::-webkit-media-controls,
-.project-video video::-webkit-media-controls-start-playback-button,
-.project-video video::-webkit-media-controls {
-  display: none !important;
-  -webkit-appearance: none;
+/* Video sits above poster; stay invisible until playback so iOS never shows a play affordance */
+.tile-media--video {
   opacity: 0;
-  pointer-events: none;
-  width: 0;
-  height: 0;
+  transition: opacity 160ms linear;
+  z-index: 1;
+}
+
+.tile-media--video.is-playing {
+  opacity: 1;
+}
+
+/* Hide every native media overlay Chrome/Safari may paint on muted tiles */
+video.tile-media::-webkit-media-controls-start-playback-button,
+video.tile-media::-webkit-media-controls-overlay-play-button,
+video.tile-media::-webkit-media-controls,
+video.tile-media::-webkit-media-controls-enclosure,
+.project-video video::-webkit-media-controls-start-playback-button,
+.project-video video::-webkit-media-controls-overlay-play-button,
+.project-video video::-webkit-media-controls,
+.project-video video::-webkit-media-controls-enclosure {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .tile-shell {

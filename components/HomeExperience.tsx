@@ -27,6 +27,7 @@ import {
   buildShuffledHomepageGrid,
   type GridItem,
 } from "@/lib/projects";
+import { kickAllAutoplayVideos } from "@/lib/video-autoplay";
 
 export function HomeExperience() {
   const searchParams = useSearchParams();
@@ -48,6 +49,23 @@ export function HomeExperience() {
   useEffect(() => {
     setItems(buildShuffledHomepageGrid());
   }, []);
+
+  // Start / resume tile videos as soon as the grid exists (intro + return from project)
+  useEffect(() => {
+    if (!items) return;
+    const kick = () => kickAllAutoplayVideos();
+    kick();
+    const t1 = window.setTimeout(kick, 100);
+    const t2 = window.setTimeout(kick, 400);
+    const t3 = window.setTimeout(kick, 1000);
+    const t4 = window.setTimeout(kick, 2000);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+      window.clearTimeout(t4);
+    };
+  }, [items, openingPlaying, aboutReentering]);
 
   useEffect(() => {
     if (!aboutReentering || !items) return;
