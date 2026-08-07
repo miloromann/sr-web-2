@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { content } from "@/lib/content";
+import { mediaUrl } from "@/lib/media";
 import type { Project } from "@/lib/projects";
 
 export function ProjectHeader({ project }: { project: Project }) {
@@ -15,7 +16,7 @@ export function ProjectHeader({ project }: { project: Project }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="project-header__logo-img"
-          src="/brand/letter-r.svg"
+          src={mediaUrl("/brand/letter-r.svg")}
           alt=""
         />
       </Link>

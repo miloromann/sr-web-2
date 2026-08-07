@@ -10,6 +10,7 @@ import {
   hasOpeningBeenHandled,
   markOpeningHandled,
 } from "@/lib/opening-gate";
+import { mediaUrl } from "@/lib/media";
 
 type Props = {
   /** Count of non-brand tiles — drives total cascade length. */
@@ -45,12 +46,12 @@ function getOpeningTimelineMs(morphCount: number) {
 }
 
 const LETTERS = [
-  "/brand/romann-logo-r.png",
-  "/brand/romann-logo-o.png",
-  "/brand/romann-logo-m.png",
-  "/brand/romann-logo-a.png",
-  "/brand/romann-logo-n.png",
-  "/brand/romann-logo-n-2.png",
+  mediaUrl("/brand/romann-logo-r.png"),
+  mediaUrl("/brand/romann-logo-o.png"),
+  mediaUrl("/brand/romann-logo-m.png"),
+  mediaUrl("/brand/romann-logo-a.png"),
+  mediaUrl("/brand/romann-logo-n.png"),
+  mediaUrl("/brand/romann-logo-n-2.png"),
 ] as const;
 
 /**

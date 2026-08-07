@@ -3,7 +3,8 @@
     "product": "Studio Romann portfolio website",
     "version": "version-001",
     "extractedAt": "2026-08-03",
-    "note": "SOURCE OF TRUTH — edit this file to change site text. Refresh the browser after saving.",
+    "mediaBase": "https://files.studioromann.com",
+    "note": "SOURCE OF TRUTH — edit this file to change site text. Media paths are relative and resolved to mediaBase. Refresh the browser after saving.",
     "sources": [
       "lib/projects.ts",
       "components/AboutOverlay.tsx",

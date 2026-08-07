@@ -1,8 +1,29 @@
 # DreamHost — drop this in the site root (same folder as index.html)
-# Serves /work/slug/ folders cleanly; falls back to 404.html if present.
+# Serves /work/slug/ folders cleanly; long-cache media so videos load once.
 
 Options -MultiViews
 RewriteEngine On
+<IfModule mod_headers.c>
+  # Videos: cache hard — files are versioned by path
+  <FilesMatch "\.(mp4|webm|ogg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Images + fonts
+  <FilesMatch "\.(png|jpe?g|gif|webp|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Next hashed build assets
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+
+  # HTML: revalidate so deploys show up
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
 
 # If the request is a real file or directory, serve it
 RewriteCond %{REQUEST_FILENAME} -f [OR]

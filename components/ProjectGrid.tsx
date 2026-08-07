@@ -6,6 +6,7 @@ import { useState, type CSSProperties, type ReactNode } from "react";
 import { getOpeningTileDelayMs } from "@/components/OpeningAnimation";
 import { MutedAutoplayVideo } from "@/components/MutedAutoplayVideo";
 import { captureHomeScrollFromWindow, markHomeScrollPendingRestore } from "@/lib/home-scroll";
+import { mediaUrl } from "@/lib/media";
 import type { GridItem, Project } from "@/lib/projects";
 
 function TileImage({
@@ -156,7 +157,7 @@ export function ProjectGrid({
                 delayMs={delayMs}
                 openingDelayMs={openingDelayMs}
               >
-                <TileImage src="/brand/romann-logo-r.png" alt={item.alt} />
+                <TileImage src={mediaUrl("/brand/romann-logo-r.png")} alt={item.alt} />
               </TileShell>
             </button>
           );

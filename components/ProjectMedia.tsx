@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { MediaItem, Project } from "@/lib/projects";
+import { ensureVideoCached } from "@/lib/video-cache";
 
 function FlipCard({
   front,
@@ -39,6 +40,10 @@ function ProjectVideo({ src, poster }: { src: string; poster?: string }) {
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
+    if (src) void ensureVideoCached(src);
+  }, [src]);
+
+  useEffect(() => {
     const el = videoRef.current;
     if (!el) return;
 
@@ -54,6 +59,7 @@ function ProjectVideo({ src, poster }: { src: string; poster?: string }) {
       void el.play().catch(() => {});
     };
 
+    // Avoid el.load() — it forces a re-download and breaks cache reuse / looping.
     tryPlay();
     el.addEventListener("loadeddata", tryPlay);
     el.addEventListener("canplay", tryPlay);

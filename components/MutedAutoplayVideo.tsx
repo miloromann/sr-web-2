@@ -8,6 +8,7 @@ import {
   tryPlayMuted,
   unregisterAutoplayVideo,
 } from "@/lib/video-autoplay";
+import { ensureVideoCached } from "@/lib/video-cache";
 
 type Props = Omit<
   VideoHTMLAttributes<HTMLVideoElement>,
@@ -20,7 +21,7 @@ type Props = Omit<
 
 /**
  * Muted looping video aimed at iOS/Android homepage tiles.
- * Keeps retrying play during the intro so videos run before any scroll gesture.
+ * Prefetches into Cache API once, then loops without re-downloading.
  */
 export function MutedAutoplayVideo({
   className,
@@ -36,8 +37,13 @@ export function MutedAutoplayVideo({
   }, [playing, onPlayingChange]);
 
   useEffect(() => {
+    if (typeof src !== "string" || !src) return;
+    void ensureVideoCached(src);
+  }, [src]);
+
+  useEffect(() => {
     const el = ref.current;
-    if (!el || !src) return;
+    if (!el || typeof src !== "string" || !src) return;
 
     registerAutoplayVideo(el);
     armMutedVideo(el);
@@ -58,26 +64,17 @@ export function MutedAutoplayVideo({
       });
     };
 
-    // Immediate + media events
+    // Do NOT call el.load() — that forces a full re-fetch and kills looping reuse.
     tryPlay();
-    if (el.readyState < 2) {
-      try {
-        el.load();
-      } catch {
-        /* ignore */
-      }
-    }
     el.addEventListener("loadeddata", tryPlay);
     el.addEventListener("canplay", tryPlay);
     el.addEventListener("canplaythrough", tryPlay);
     el.addEventListener("playing", markPlaying);
     el.addEventListener("pause", markPaused);
 
-    // Keep trying through the intro window (no gesture required if policy allows)
     const burst = window.setInterval(tryPlay, 400);
     const stopBurst = window.setTimeout(() => window.clearInterval(burst), 8000);
 
-    // Play when near / in viewport (helps after returning from a project)
     let io: IntersectionObserver | null = null;
     if (typeof IntersectionObserver !== "undefined") {
       io = new IntersectionObserver(
@@ -101,7 +98,6 @@ export function MutedAutoplayVideo({
     window.addEventListener("pageshow", onPageShow);
     document.addEventListener("visibilitychange", onVisible);
 
-    // Gesture unlock still helps on strict browsers — but don't wait for it
     const unlock = () => {
       kickAllAutoplayVideos();
       tryPlay();
@@ -132,7 +128,6 @@ export function MutedAutoplayVideo({
       ref={ref}
       className={`${className ?? ""}${playing ? " is-playing" : " is-pending"}`}
       src={src}
-      // Poster handled by sibling img in TileMedia — avoids iOS play-button-on-poster
       autoPlay
       muted
       loop

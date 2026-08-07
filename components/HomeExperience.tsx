@@ -28,6 +28,7 @@ import {
   type GridItem,
 } from "@/lib/projects";
 import { kickAllAutoplayVideos } from "@/lib/video-autoplay";
+import { collectVideoSrcs, prefetchVideos } from "@/lib/video-cache";
 
 export function HomeExperience() {
   const searchParams = useSearchParams();
@@ -49,6 +50,15 @@ export function HomeExperience() {
   useEffect(() => {
     setItems(buildShuffledHomepageGrid());
   }, []);
+
+  // Cache homepage tile videos once so return visits / remounts don't re-download
+  useEffect(() => {
+    if (!items) return;
+    const projects = items
+      .filter((i): i is Extract<GridItem, { kind: "project" }> => i.kind === "project")
+      .map((i) => i.project);
+    prefetchVideos(collectVideoSrcs(projects));
+  }, [items]);
 
   // Start / resume tile videos as soon as the grid exists (intro + return from project)
   useEffect(() => {
